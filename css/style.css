@@ -177,7 +177,8 @@ footer {
 
 .main-btn-row {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+  margin: 0;
 }
 
 .main-btn-box {
@@ -186,7 +187,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--highlight);
-  height: 2.8em;
+  height: 3.16em;
   /* border: 1px solid white; */
-  margin: 0 0.05em;
+  margin: 0.05em 0.05em;
 }
