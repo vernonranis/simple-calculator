@@ -178,11 +178,11 @@ footer {
 }
 
 .display.input {
-  font-size: 4em;
+  font-size: 2.6em;
 }
 
 .display.operations {
-  font-size: 2.5em;
+  font-size: 1em;
 }
 
 input:focus {
