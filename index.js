@@ -9,6 +9,22 @@ document.addEventListener('keydown', (e) => {
 });
 
 function inputKey(e) {
+  // ISSUE when pressing the F-keys or delete if the value is zero. The value gets deleted
+  // if (inputDisplaySelector.value === 0) {
+  // }
+  // while (zeroIssue < 13) {
+  //   zeroIssue++;
+  //   if (e.key === 'F' + zeroIssue) {
+  //     console.log('F' + zeroIssue, 'it works');
+  //     inputDisplaySelector.setAttribute('value', 0);
+  //     null;
+  //     e.key === 'Delete' && (inputDisplaySelector.value = 0);
+  //     break;
+  //   } else {
+  //     null;
+  //   }
+  // }
+
   isFinite(e.key) ? (userInput += e.key) : null;
 
   // this part allows user to enter a number and delete a number.
