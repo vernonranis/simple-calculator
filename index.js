@@ -4,12 +4,8 @@ let userInputInteger;
 let afterDecimal = [];
 
 // and display it in the display operation input
-// TODO add dots for decimal inputs
 document.addEventListener('keydown', (e) => {
   inputKey(e);
-  console.log('afterDecimal', afterDecimal);
-  console.log('userInput', userInput);
-  console.log('userInputInteger', userInputInteger);
 });
 
 function inputKey(e) {
@@ -24,7 +20,6 @@ function inputKey(e) {
   if (e.key === 'Backspace') {
     if (afterDecimal.includes('.')) {
       afterDecimal = afterDecimal.slice(0, -1);
-      console.log(afterDecimal);
     } else {
       userInput = userInput.slice(0, -1);
       userInputInteger = parseFloat(userInput);
@@ -37,7 +32,6 @@ function inputKey(e) {
       inputDisplaySelector.setAttribute('value', 0);
     }
   } else if (e.key === '.') {
-    // !afterDecimal.includes('.') ? (afterDecimal += e.key) : null;
     if (!afterDecimal.includes('.')) {
       afterDecimal += e.key;
       inputDisplaySelector.setAttribute(
