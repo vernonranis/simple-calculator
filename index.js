@@ -1,6 +1,7 @@
 const inputDisplaySelector = document.querySelector('.input-display .input');
 let userInput = [];
 let userInputInteger;
+let afterDecimal = [];
 
 // TODO place all userInput in an array after user pressed an operator
 // and display it in the display operation input
@@ -27,6 +28,8 @@ function inputKey(e) {
     if (userInput.length === 0) {
       inputDisplaySelector.setAttribute('value', 0);
     }
+  } else if (e.key === '.') {
+    !afterDecimal.includes('.') ? (afterDecimal += e.key) : null;
   } else {
     if (userInput.length === 0) {
       inputDisplaySelector.setAttribute('value', 0);
@@ -35,7 +38,13 @@ function inputKey(e) {
       userInputInteger = userInputInteger.toLocaleString('en', {
         maximumFractionDigits: 0,
       });
-      inputDisplaySelector.setAttribute('value', userInputInteger);
+      afterDecimal.includes('.')
+        ? (afterDecimal += e.key)
+        : inputDisplaySelector.setAttribute('value', userInputInteger);
+      inputDisplaySelector.setAttribute(
+        'value',
+        userInputInteger + afterDecimal
+      );
     }
   }
 }
