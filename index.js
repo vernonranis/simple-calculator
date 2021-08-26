@@ -2,10 +2,12 @@ const inputDisplaySelector = document.querySelector('.input-display .input');
 let userInput = [];
 let userInputInteger;
 let afterDecimal = [];
+let firstInput;
 
 // and display it in the display operation input
 document.addEventListener('keydown', (e) => {
   inputKey(e);
+  enterFunc(e);
 });
 
 function inputKey(e) {
@@ -17,6 +19,7 @@ function inputKey(e) {
   // If the length will be equal to zero then the display value will be zero as well.
   // TODO try converting this to a ternary operation if possible
   // ISSUE if space and alt key is pressed the calculator wont work anymore
+  // ISSUE if userInput starts with 0. will error out
   if (e.key === 'Backspace') {
     if (afterDecimal.includes('.')) {
       afterDecimal = afterDecimal.slice(0, -1);
@@ -32,8 +35,12 @@ function inputKey(e) {
       inputDisplaySelector.setAttribute('value', 0);
     }
   } else if (e.key === '.') {
+    if (userInput.length === 0) {
+      userInput = '0';
+    }
     if (!afterDecimal.includes('.')) {
       afterDecimal += e.key;
+      userInputInteger = userInput;
       inputDisplaySelector.setAttribute(
         'value',
         userInputInteger + afterDecimal
@@ -60,6 +67,14 @@ function inputKey(e) {
         );
       }
     }
+  }
+}
+
+function enterFunc(e) {
+  if (e.key === 'Enter') {
+    firstInput = userInput + afterDecimal;
+    firstInput = parseFloat(firstInput);
+    console.log(typeof firstInput, firstInput);
   }
 }
 
