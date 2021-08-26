@@ -3,6 +3,8 @@ let userInput = [];
 let userInputInteger;
 let afterDecimal = [];
 let firstInput;
+let inputArray = [];
+let operationArray = [];
 
 // and display it in the display operation input
 document.addEventListener('keydown', (e) => {
@@ -71,10 +73,56 @@ function inputKey(e) {
 }
 
 function enterFunc(e) {
-  if (e.key === 'Enter') {
-    firstInput = userInput + afterDecimal;
-    firstInput = parseFloat(firstInput);
-    console.log(typeof firstInput, firstInput);
+  firstInput = userInput + afterDecimal;
+  firstInput = parseFloat(firstInput);
+
+  switch (true) {
+    case e.key === '+':
+      if (!isNaN(firstInput)) {
+        inputArray.push(firstInput);
+        operationArray.push('+');
+        console.log(inputArray);
+        console.log(operationArray);
+        userInput = [];
+        afterDecimal = [];
+      }
+      break;
+
+    case e.key === '-':
+      if (!isNaN(firstInput)) {
+        inputArray.push(firstInput);
+        operationArray.push('-');
+        console.log(inputArray);
+        console.log(operationArray);
+        userInput = [];
+        afterDecimal = [];
+      }
+      break;
+
+    case e.key === '*':
+      if (!isNaN(firstInput)) {
+        inputArray.push(firstInput);
+        operationArray.push('*');
+        console.log(inputArray);
+        console.log(operationArray);
+        userInput = [];
+        afterDecimal = [];
+      }
+      break;
+
+    case e.key === '/':
+      if (!isNaN(firstInput)) {
+        inputArray.push(firstInput);
+        operationArray.push('/');
+        console.log(inputArray);
+        console.log(operationArray);
+        userInput = [];
+        afterDecimal = [];
+      }
+      break;
+
+    default:
+      break;
   }
 }
 
